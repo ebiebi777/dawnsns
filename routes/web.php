@@ -23,21 +23,24 @@
 Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
-Route::get('/register', 'Auth\RegisterController@register');
-Route::post('/register', 'Auth\RegisterController@register');
+Route::get('/register', 'Auth\RegisterController@register'); //新規登録入力なしはget
+Route::post('/register', 'Auth\RegisterController@register'); //入力ありはpost
 
 Route::get('/added', 'Auth\RegisterController@added');
 
 
 //ログイン中のページ
 Route::get('/top','PostsController@index');
+Route::post('/post/create','PostsController@create');
+Route::post('/update','PostsController@update');
+Route::get('/{delete}/delete','PostsController@delete');
+Route::get('/follow/{follow}','PostsController@follow');
+Route::get('/unfollow/{unfollow}','PostsController@unfollow');
 
 Route::get('/profile','UsersController@profile');
 
-Route::get('/search','UsersController@index');
+Route::get('/search','UsersController@search');
+Route::post('/search','UsersController@search');
 
 Route::get('/follow-list','PostsController@index');
 Route::get('/follower-list','PostsController@index');
-
-
-
