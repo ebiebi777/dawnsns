@@ -36,11 +36,13 @@ Route::post('/update','PostsController@update');
 Route::get('/{delete}/delete','PostsController@delete');
 Route::get('/follow/{follow}','PostsController@follow');
 Route::get('/unfollow/{unfollow}','PostsController@unfollow');
+Route::get('/logout','Auth\LoginController@logout');
 
 Route::get('/profile','UsersController@profile');
+Route::post('/update/profile','UsersController@profile');
 
 Route::get('/search','UsersController@search');
 Route::post('/search','UsersController@search');
 
-Route::get('/follow-list','PostsController@index');
-Route::get('/follower-list','PostsController@index');
+Route::get('/follow-list','FollowsController@followPost');
+Route::get('/followProfile/{id}','FollowsController@followProfile');
