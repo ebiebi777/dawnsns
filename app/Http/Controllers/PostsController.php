@@ -53,15 +53,15 @@ class PostsController extends Controller
     {
     \DB::table('follows')
     ->insert([
-    'follow' => $follow, //相手のid 左がカラム　右入れる内容
-    'follower' => Auth::id(), //自分のID
+    'follow' => $follow, //followカラムに相手のidを入れる 左がカラム　右入れる内容
+    'follower' => Auth::id(), //follower自分のIDを入れる
      ]);
      return redirect('/search');
     }
 
      public function unfollow($unfollow){
     \DB::table('follows')
-    ->where('follow', $unfollow) //相手のid
+    ->where('follow', $unfollow) //followerのカラムに自分のidが入っていることを条件
     ->where('follower', Auth::id()) //自分のid
     ->delete();
     return redirect('/search');
