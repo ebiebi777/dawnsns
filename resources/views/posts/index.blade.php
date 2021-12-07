@@ -30,6 +30,7 @@
                 </td>
             </tr>
 
+
             <div class="updateform" id="modal{{$list->id}}">
         {!! Form::open(['url' => '/update']) !!}
        <div class="form-group">

@@ -63,6 +63,11 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'file' => [ //画像を送る
+            'driver' => 'local',
+            'root' => public_path(),
+        ]
+
     ],
 
 ];
