@@ -65,7 +65,7 @@ class RegisterController extends Controller
 //バリデーション
 public function store(array $val)
 {
-return Validator::make($val, [ //makeでインスタンス？
+return Validator::make($val, [ //
 'username' => 'required|min:4|max:12',
 'mail' => 'required|min:4|max:50|unique:users',
 'password' => ['required', 'unique:users', 'regex:/^[0-9a-zA-Z]{4,12}+$/'],
@@ -96,13 +96,13 @@ return Validator::make($val, [ //makeでインスタンス？
 
     public function register(Request $request){ //新規登録
 if ($request->isMethod('post')) { //postできてるかどうか
-$data = $request->input(); //中身を$dataに格納
+$data = $request->input(); //inputでrequestされてきたデータが$dataに入る
 
-$validate = $this->store($data); //storeに飛ばす
+$validate = $this->store($data); //storeに$data飛ばす　終わったら帰ってきて下の処理が走る
 if ($validate->fails()) {
 return redirect('/register')->withErrors($validate)->withInput(); //バリデーションがエラーで戻った時に値を保持
 } else {
-$this->create($data); //createに処理を飛ばしている
+$this->create($data); //大丈夫だったらcreateに処理を飛ばしている
 
 return redirect('added')->with('data', $data['username']); //addedにリダイレクトdateにusernameを渡す
 }

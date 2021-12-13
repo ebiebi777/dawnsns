@@ -8,6 +8,12 @@ header{
     background:#3C4767;
 }
 
+#head{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
 /* main content */
 #row{
     display: flex;
@@ -29,6 +35,19 @@ header{
 /*後で確認!!　ハンバーガーメニュー*/
 
 
+.menu-trigger{
+display:flex ;
+right: 0;
+color: #FFF;
+align-items: center;
+}
+
+.menu-trigger .icon{
+  top: -25px;
+  left: 100px;
+}
+
+
 .gnavi{
   display: none;
 }
@@ -37,7 +56,7 @@ header{
   position: fixed; /*表示位置を固定*/
   z-index: 2; /*重ね順を変更*/
   top: 0; /*表示位置を指定*/
-  left: 0; /*表示位置を指定*/
+  right: 0;
   background: #fff;/*背景を白にする*/
   color: #000; /*文字色を黒にする*/
   text-align: center; /*テキストを中央揃え*/
@@ -45,6 +64,7 @@ header{
   height: 30%;
   transform: translateY(-100%); /*ナビを上に隠す*/
   transition: all 0.6s; /*アニメーションの時間を指定*/
+
 }
 
 .gnavi ul li a{
@@ -54,7 +74,7 @@ header{
   text-decoration: none;
 }
 
-/*トグルボタンが押されたときに付与するクラス*/
+/*transform 徐々にでてくる*/
 .gnavi.active{
-  transform: translateY(0%);
+  transform: translateY(103px);
 }

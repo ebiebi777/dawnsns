@@ -59,7 +59,7 @@ class UsersController extends Controller
         ->get()
         ->toArray(); //配列化
 
-        if (!empty($request -> input('search'))) { //検索機能　$requestのinputのsearchがあれば処理が走る
+        if (!empty($request -> input('search'))) { //検索機能　$requestのinputのsearchがあれば処理が走る searchがname属性
         $key = $request -> input('search'); //入力した内容をkeyへ
         $list = \DB::table('users')
         ->select('users.*')

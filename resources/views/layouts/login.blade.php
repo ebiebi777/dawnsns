@@ -13,6 +13,7 @@
     <!--スマホ,タブレット対応-->
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <!--サイトのアイコン指定-->
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <link rel="icon" href="画像URL" sizes="16x16" type="image/png" />
     <link rel="icon" href="画像URL" sizes="32x32" type="image/png" />
     <link rel="icon" href="画像URL" sizes="48x48" type="image/png" />
@@ -24,24 +25,28 @@
 <body>
     <header>
         <div id = "head">
-        <h1><a href="/top"><img src="{{ asset('images/main_logo.png') }}"></a></h1>
+            <h1>
+                <a href="/top"><img src="{{ asset('images/main_logo.png') }}"></a>
+            </h1>
+
+            <div class="h_right">
+                <div class="menu-trigger">
+                    <p>{{$username}}さん<i class="fas fa-chevron-down"></i></p>
+                    <img class="icon" src="{{asset('images/'.$userimage)}}">
+                </div>
 
 
-<!--後で確認!!　ハンバーガーメニュー-->
-<div class="menu-trigger">
-<p>{{$username}}さん<img src="{{ asset('images/arrow.png') }}"></p>
-</div>
-
-<div class="nav-wrapper">
-  <nav class="gnavi">
-<ul>
-<li><a href="/top">TOP</a></li>
-<li><a href="/profile">プロフィール</a></li>
-<li><a href="/logout">ログアウト</a></li>
-</ul>
-  </nav>
-</div>
-
+                <div class="nav-wrapper">
+                    <nav class="gnavi">
+                        <ul>
+                            <li><a href="/top">TOP</a></li>
+                            <li><a href="/profile">プロフィール</a></li>
+                            <li><a href="/logout">ログアウト</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
 
     </header>
 
@@ -62,7 +67,7 @@
                 <p>フォロワー数</p>
                 <p>{{$countFollower}}名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
             <p class="btn"><a href="/search">ユーザー検索</a></p>
         </div>
